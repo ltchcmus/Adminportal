@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 const PaymentSuccess = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [codeValue, setCodeValue] = useState('XXXX-XXXX-XXXX-XXXX');
 
   useEffect(() => {
     setIsVisible(true);
@@ -11,14 +10,8 @@ const PaymentSuccess = () => {
     const orderId = urlParams.get('orderId');
     const transId = urlParams.get('transId');
     const amount = urlParams.get('amount');
-    const code = urlParams.get('code');
     
-    console.log('Transaction Details:', { orderId, transId, amount, code });
-    
-    // Store code for display
-    if (code) {
-      setCodeValue(code);
-    }
+    console.log('Transaction Details:', { orderId, transId, amount });
   }, []);
 
   const handleGoHome = () => {
@@ -61,22 +54,54 @@ const PaymentSuccess = () => {
             </div>
             
             <h1 className="text-4xl font-bold text-white mb-2">
-              Thanh Toán Thành Công!
+              Yêu Cầu Đã Được Xử Lý!
             </h1>
             <p className="text-xl text-green-50">
-              Cảm ơn bạn đã mua code premium
+              Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi
             </p>
           </div>
 
           {/* Content */}
           <div className="p-8 sm:p-12">
+            {/* Email Notification - Most Important */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 mb-8 border-2 border-green-200">
+              <div className="flex items-start">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="ml-4 flex-1">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">📧 Kiểm Tra Email Của Bạn</h3>
+                  <div className="space-y-3">
+                    <p className="text-gray-700">
+                      Nếu thanh toán thành công, <strong>code kích hoạt Premium</strong> đã được gửi đến email của bạn.
+                    </p>
+                    <div className="bg-white rounded-lg p-4 border border-green-300">
+                      <p className="text-sm text-gray-600 flex items-center mb-2">
+                        <svg className="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        </svg>
+                        Vui lòng kiểm tra email để biết kết quả thanh toán
+                      </p>
+                      <p className="text-xs text-gray-500 ml-6">
+                        ⚠️ Nhớ kiểm tra cả <strong>thư mục Spam/Junk</strong> nếu không thấy email trong hộp thư chính
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Transaction Details */}
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 mb-8">
               <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
                 <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Chi Tiết Giao Dịch
+                Thông Tin Giao Dịch
               </h2>
               
               <div className="space-y-3">
@@ -106,38 +131,13 @@ const PaymentSuccess = () => {
               </div>
             </div>
 
-            {/* Code Information */}
-            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 mb-8 border-2 border-yellow-200">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center">
-                    <span className="text-2xl">🔑</span>
-                  </div>
-                </div>
-                <div className="ml-4 flex-1">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">Code Kích Hoạt Của Bạn</h3>
-                  <div className="bg-white rounded-lg p-4 mb-3 border border-yellow-300">
-                    <p className="text-2xl font-mono font-bold text-center text-blue-600 tracking-wider">
-                      {codeValue}
-                    </p>
-                  </div>
-                  <p className="text-sm text-gray-600 flex items-center">
-                    <svg className="w-4 h-4 mr-2 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                    </svg>
-                    Code đã được gửi đến email của bạn
-                  </p>
-                </div>
-              </div>
-            </div>
-
             {/* Next Steps */}
             <div className="bg-gray-50 rounded-2xl p-6 mb-8">
               <h3 className="text-lg font-bold text-gray-800 mb-4">📝 Các Bước Tiếp Theo</h3>
               <ol className="space-y-3">
                 <li className="flex items-start">
                   <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</span>
-                  <span className="text-gray-700">Kiểm tra email để nhận code kích hoạt</span>
+                  <span className="text-gray-700"><strong>Mở email</strong> và tìm mail chứa code kích hoạt</span>
                 </li>
                 <li className="flex items-start">
                   <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
@@ -145,13 +145,22 @@ const PaymentSuccess = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</span>
-                  <span className="text-gray-700">Nhập code để kích hoạt phiên bản Premium</span>
+                  <span className="text-gray-700">Sao chép code từ email và nhập vào ứng dụng</span>
                 </li>
                 <li className="flex items-start">
                   <span className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">4</span>
-                  <span className="text-gray-700">Bắt đầu trải nghiệm tất cả tính năng cao cấp</span>
+                  <span className="text-gray-700">Bắt đầu trải nghiệm tất cả tính năng Premium</span>
                 </li>
               </ol>
+              
+              <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <p className="text-sm text-blue-800 flex items-center">
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                  <strong>Lưu ý:</strong> Vì lý do bảo mật, code chỉ hiển thị trong email chính thức
+                </p>
+              </div>
             </div>
 
             {/* Action Buttons */}
