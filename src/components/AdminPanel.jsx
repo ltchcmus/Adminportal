@@ -97,14 +97,14 @@ const AdminPanel = () => {
                 </div>
                 <div>
                   <h4 className="text-2xl font-bold text-gray-800">Code Trial</h4>
-                  <p className="text-blue-600 font-semibold">Miễn Phí - 7 Ngày</p>
+                  <p className="text-blue-600 font-semibold">Miễn Phí - 15 ngày</p>
                 </div>
               </div>
 
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center text-gray-600">
                   <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center mr-3 text-sm">✓</span>
-                  Thời hạn: 7 ngày
+                  Thời hạn: 15 ngày
                 </li>
                 <li className="flex items-center text-gray-600">
                   <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center mr-3 text-sm">✓</span>
@@ -147,7 +147,7 @@ const AdminPanel = () => {
                 </div>
                 <div>
                   <h4 className="text-2xl font-bold text-gray-800">Code Premium</h4>
-                  <p className="text-orange-600 font-bold text-xl">199,000 VNĐ</p>
+                  <p className="text-orange-600 font-bold text-xl">15,000,000 VNĐ</p>
                 </div>
               </div>
 

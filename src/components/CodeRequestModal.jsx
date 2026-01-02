@@ -86,7 +86,7 @@ const CodeRequestModal = ({ isOpen, onClose, onSubmit, type = 'trial' }) => {
             </h3>
             <p className="text-gray-600">
               {type === 'trial' 
-                ? 'Trải nghiệm đầy đủ tính năng trong 7 ngày' 
+                ? 'Trải nghiệm đầy đủ tính năng trong 15 ngày' 
                 : 'Sử dụng vĩnh viễn, không giới hạn'}
             </p>
           </div>

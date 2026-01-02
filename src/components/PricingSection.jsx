@@ -26,7 +26,7 @@ const PricingSection = () => {
       id: 'trial',
       name: 'Trial',
       price: 'Miễn Phí',
-      duration: '7 ngày',
+      duration: '15 ngày',
       icon: '🎁',
       color: 'from-blue-500 to-cyan-500',
       features: [
@@ -47,7 +47,7 @@ const PricingSection = () => {
     {
       id: 'premium',
       name: 'Premium',
-      price: '199,000',
+      price: '15,000,000',
       duration: 'Vĩnh viễn',
       icon: '💎',
       color: 'from-yellow-500 to-orange-500',
@@ -156,7 +156,13 @@ const PricingSection = () => {
               </div>
 
               {/* CTA Button */}
-              <button className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 hover-lift ${
+              <button 
+                onClick={() => {
+                  if (plan.id === 'trial' || plan.id === 'premium') {
+                    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 hover-lift ${
                 plan.popular 
                   ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white animate-pulse-glow hover:shadow-2xl' 
                   : 'bg-white/20 text-white hover:bg-white/30 border border-white/20'

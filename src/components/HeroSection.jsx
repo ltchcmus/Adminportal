@@ -44,10 +44,14 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover-lift hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            <button 
+              onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full sm:w-auto px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover-lift hover:shadow-2xl transition-all duration-300 hover:scale-105">
               🎁 Nhận Code Trial Miễn Phí
             </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-xl font-bold text-lg hover-lift hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-pulse-glow">
+            <button 
+              onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-xl font-bold text-lg hover-lift hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-pulse-glow">
               💎 Mua Code Premium
             </button>
           </div>

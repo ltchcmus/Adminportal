@@ -54,22 +54,54 @@ const PaymentSuccess = () => {
             </div>
             
             <h1 className="text-4xl font-bold text-white mb-2">
-              Thanh Toán Thành Công!
+              Yêu Cầu Đã Được Xử Lý!
             </h1>
             <p className="text-xl text-green-50">
-              Cảm ơn bạn đã mua code premium
+              Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi
             </p>
           </div>
 
           {/* Content */}
           <div className="p-8 sm:p-12">
+            {/* Email Notification - Most Important */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 mb-8 border-2 border-green-200">
+              <div className="flex items-start">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="ml-4 flex-1">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">📧 Kiểm Tra Email Của Bạn</h3>
+                  <div className="space-y-3">
+                    <p className="text-gray-700">
+                      Nếu thanh toán thành công, <strong>code kích hoạt Premium</strong> đã được gửi đến email của bạn.
+                    </p>
+                    <div className="bg-white rounded-lg p-4 border border-green-300">
+                      <p className="text-sm text-gray-600 flex items-center mb-2">
+                        <svg className="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        </svg>
+                        Vui lòng kiểm tra email để biết kết quả thanh toán
+                      </p>
+                      <p className="text-xs text-gray-500 ml-6">
+                        ⚠️ Nhớ kiểm tra cả <strong>thư mục Spam/Junk</strong> nếu không thấy email trong hộp thư chính
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Transaction Details */}
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 mb-8">
               <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
                 <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Chi Tiết Giao Dịch
+                Thông Tin Giao Dịch
               </h2>
               
               <div className="space-y-3">
@@ -83,7 +115,7 @@ const PaymentSuccess = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Số tiền:</span>
-                  <span className="font-bold text-2xl text-blue-600">199,000 VNĐ</span>
+                  <span className="font-bold text-2xl text-blue-600">15,000,000 VNĐ</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Thời gian:</span>
@@ -95,38 +127,6 @@ const PaymentSuccess = () => {
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                     Thành công
                   </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Email Notification */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 mb-8 border-2 border-green-200">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="ml-4 flex-1">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">📧 Code Đã Được Gửi</h3>
-                  <div className="space-y-3">
-                    <p className="text-gray-700">
-                      <strong>Code kích hoạt Premium</strong> đã được gửi đến email của bạn.
-                    </p>
-                    <div className="bg-white rounded-lg p-4 border border-green-300">
-                      <p className="text-sm text-gray-600 flex items-center mb-2">
-                        <svg className="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                        </svg>
-                        Vui lòng kiểm tra email để nhận code
-                      </p>
-                      <p className="text-xs text-gray-500 ml-6">
-                        ⚠️ Nhớ kiểm tra cả <strong>thư mục Spam/Junk</strong> nếu không thấy email trong hộp thư chính
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
